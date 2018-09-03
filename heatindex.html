@@ -14,7 +14,7 @@
       </label>
     <label>
         Humidity(%)
-        <input type="number" id="humidityInput" value="0" />
+        <input type="number" id="humidityInput" min="0" max = "100">
       </label>
       <button onclick="assessTemperature();">Calculate</button>
       <output id="result"></output>
@@ -22,13 +22,13 @@
     <script>
       function assessTemperature() {
         var temp = 
-        document.querySelector('#tempInput');
-        var relHum = document.querySelector('#tempInput');
+        document.querySelector('#tempInput').value;
+        var relHum = document.querySelector('#tempInput').value;
         var outputElem = document.querySelector('#result');
         var temp = inputElem.value;
         var index;
         
-        index = -42.379 + 2.04901523 * temp + 10.14333127 * relhum - 0.22475541 * temp * relhum - 0.00683783 * temp^2 - 0.05481717 * relhum^2 + 0.00122874 * temp^2 * relhum + 0.00085282 * temp * relhum^2 - 0.00000199 * temp2 * relhum^2
+        index = -42.379 + 2.04901523 * temp + 10.14333127 * relhum - 0.22475541 * temp * relhum - 0.00683783 * Math.pow(temp,2) - 0.05481717 * Math.pow(relhum,2) + 0.00122874 * Math.pow(temp,2) * relhum + 0.00085282 * temp * Math.pow(relhum,2) - 0.00000199 * Math.pow(temp,2) * Math.pow(relhum,2)
         
         outputElem.innerHTML = 'Heat Index: ' + index
       }
