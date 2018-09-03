@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Jake Tantorski's Heat Index Calculator</title>
@@ -6,22 +6,45 @@
   </head>
   <body>
     <h1>Heat Index Calculator</h1>
-		<p>Calculate Heat Index using Temperature and Humidity. Click Calculate to find answer.
+		<p>Calculate Heat Index using Temperature and Humidity. Click Calculate to find answer!
 		</p>
+      
 		<form onsubmit = "return false;">
 			<label>
-				Enter Temperature(F): 
+				Enter Temperature(F&deg;): 
 				<input type = "number" id = "tempInput" value = "0">
 			</label>
+            
 			<br>
+            
 			<label>
 				Enter Humidity (0-100)
-				<input type = "number" id = "humInput" value = "0" min = "0" max = "100">
+				<input type = "number" id = "humInput"  min = "0" max = "100">
 			</label>
-			<br>
-			<input type = "button" id = "calculateButton" value = "Calculate" onclick = "calculateIndex();">
-			<br>
-			<output id="result"></output>
+            <label id = "outputElem" /label>
+                
+			<button onclick="calcIndex();">Calculate</button>
+            
+			
+            
 		</form>
+      <script>
+			function calcIndex() {
+				var temp = document.querySelector('#tempInput').value;
+				var relhum = document.querySelector('#humInput').value;
+                
+                relhum = relhum/100;
+				
+				var heatIndex = -42.379 + 2.04901523 * temp + 10.14333127 * relhum - 0.22475541 * temp * relhum - 0.00683783 * 
+				Math.pow(temp,2) - 0.05481717 * Math.pow(relhum,2) + 0.00122874 * Math.pow(temp,2) * relhum + 0.00085282 * temp * 
+				Math.pow(relhum,2) - 0.00000199 * Math.pow(temp,2) * Math.pow(relhum,2);
+				
+                var final = document.querySelector('#outputElem');
+                
+				outputElem.innerHTML = "Heat Index: " + heatIndex;
+                }
+		</script>
+	</body>
+</html>
 		
 		
