@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Heat Index Calculator</title>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <h1>Heat Index Calculator</h1>
+    <p>Let's calculate Heat Index. Input the temperature(F) and humidity(%). Click Calculate </p>
+    <form onsubmit="return false;">
+      <label>
+        Temp (F&deg;)
+        <input type="number" id="tempInput" value="0" />
+      </label>
+    <label>
+        Humidity(%)
+        <input type="number" id="humidityInput" value="0" />
+      </label>
+      <button onclick="assessTemperature();">Calculate</button>
+      <output id="result"></output>
+    </form>
+    <script>
+      function assessTemperature() {
+        var temp = 
+        document.querySelector('#tempInput');
+        var relHum = document.querySelector('#tempInput');
+        var outputElem = document.querySelector('#result');
+        var temp = inputElem.value;
+        var index;
+        
+        outputElem.innerHTML = 'Heat Index: ' + index
+      }
+    </script>
+  </body>
+</html>
